@@ -1,4 +1,5 @@
 <?php
+  date_default_timezone_set('America/Caracas');
   if (isset($_COOKIE['eventos'])) { $array = explode("/n",$_COOKIE['eventos']); }
   else { $array = array(); }
 
@@ -20,7 +21,7 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Manejo de sesiones</title>
+    <title>Manejo de cookies</title>
 	<style>
 	  .orange {
 		background-color: #ff9800 !important;
@@ -95,7 +96,7 @@
 		text-align: left;
 		vertical-align: middle;
 		border-radius: 2px;
-	  }	
+	  }
 	  .container {
 		margin: 0 auto;
 		max-width: 1280px;
@@ -207,8 +208,8 @@
               }
             ?>
             <tr>
-              <td><input type="date" name="dia" size="10"></td>
-              <td><input type="time" name="hora" size="10"></td>
+              <td><input type="date" name="dia" size="10" max="<?php echo date('Y-m-d'); ?>"></td>
+              <td><input type="time" name="hora" size="10" value="<?php echo date('H:i'); ?>"></td>
               <td><input type="text" name="evento" size="40"></td>
               <td><button name="agregar" class="btn orange">Agregar</button></td>
             </tr>
